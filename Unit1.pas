@@ -98,10 +98,10 @@ begin
     end
     else TcpClient1.Sendln(string_command);
   finally
-//       if TcpClient1.Connected then begin
-//          TcpClient1.Disconnect;
-//          TcpClient1.Free;
-//       end;
+       if TcpClient1.Connected then begin
+          TcpClient1.Disconnect;
+          TcpClient1.Free;
+       end;
   end;
 end;
 
@@ -313,6 +313,7 @@ begin
       TcpClient1.Free;
    end;
   finally
+      TcpClient1.Active := false;
   end;
  }
   TcpClient1.Active := false;
